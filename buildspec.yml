@@ -14,7 +14,7 @@ steps:
         command: |
           echo "Build failed"
         timeoutInSeconds: 400
-        runAs: rootversion: 0.1
+        runAs: root
 
 artifacts:
   files:
