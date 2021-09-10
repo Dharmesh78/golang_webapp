@@ -6,11 +6,14 @@ shell: bash
 steps:
   - type: Command
     name: "Build golang app"
-    timeoutInSeconds: 400
+    timeoutInSeconds: 6000
     command: |
       wget https://dl.google.com/go/go1.16.5.linux-amd64.tar.gz
       tar -C /usr/local -xvzf go1.16.5.linux-amd64.tar.gz
       export PATH="/usr/local/go/bin:$PATH"
+      echo "EXTRACTION extraction done"
       export GOPATH="$HOME/go"
       export PATH="$GOPATH/bin:$PATH"
+      echo "PATH SET"
+      go version
       go build -o golangapp
