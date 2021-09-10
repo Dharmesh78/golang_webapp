@@ -6,6 +6,7 @@ phases:
   install:
     commands:
       - wget https://dl.google.com/go/go1.16.5.linux-amd64.tar.gz
+      - echo “after download…”
       - tar -C /usr/local -xvzf go1.16.5.linux-amd64.tar.gz
       - export PATH="/usr/local/go/bin:$PATH"
       - export GOPATH="$HOME/go"
