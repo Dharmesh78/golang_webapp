@@ -1,15 +1,10 @@
-version: 0.2
+version: 0.1
 phases:
   install: 
     runtime-versions:
-      golang: 1.13
+      golang: 1.17
     commands:
-      - go get -u github.com/golang/lint/golint
-
-  pre_build: 
-    commands:
-      - golint -set_exit_status
-      - go test
+      - go get -u github.com/golang/go
 
   build:
     commands:
