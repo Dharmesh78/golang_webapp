@@ -1,11 +1,24 @@
 version: 0.1
-phases:
-  install: 
-    runtime-versions:
-      golang: 1.17
-  build:
-    commands:
-      - go build -o golangapp
+component: build
+timeoutInSeconds: 6000
+runAs: root
+shell: bash
+env:
+
+  exportedVariables:
+    - version
+
+steps:
+  - type: Command
+    name: "Building golang webapp"
+    command: |
+      go build -o golangapp
+    onFailure:                      # optional to handle any failure
+      - type: Command
+        command: |
+          echo "Build failed"
+        timeoutInSeconds: 400
+        runAs: rootversion: 0.1
 
 artifacts:
   files:
