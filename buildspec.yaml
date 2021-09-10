@@ -1,13 +1,12 @@
 version: 0.2
 env:
   variables:
-    GO_VERSION: 1.16.5
+    GO_VERSION: 1.17
 phases:
   install:
     commands:
-      - wget https://dl.google.com/go/go1.16.5.linux-amd64.tar.gz
-      - echo “after download…”
-      - tar -C /usr/local -xvzf go1.16.5.linux-amd64.tar.gz
+      - yum install -y oracle-golang-release-el7
+      - yum install -y golang
       - export PATH="/usr/local/go/bin:$PATH"
       - export GOPATH="$HOME/go"
       - export PATH="$GOPATH/bin:$PATH"
