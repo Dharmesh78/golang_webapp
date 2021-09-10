@@ -16,4 +16,4 @@ steps:
       export PATH="$GOPATH/bin:$PATH"
       echo "PATH SET"
       go version
-      go build -o golangapp
+      go build
