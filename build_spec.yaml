@@ -15,6 +15,7 @@ steps:
       export PATH="$GOPATH/bin:$PATH"
       go version
       go build -o golangWebApp
+      echo "till here"
 
 outputArtifacts:
   - name: golangWebApp
