@@ -1,6 +1,6 @@
 version: 0.1
 component: build
-timeoutInSeconds: 6000
+timeoutInSeconds: 600
 runAs: root
 shell: bash
 steps:
@@ -20,4 +20,4 @@ steps:
 outputArtifacts:
   - name: golangWebAppArtifact
     type: BINARY
-    location: golangWebAppArtifact
+    location: ${OCI_PRIMARY_SOURCE_DIR}/golangWebAppArtifact
