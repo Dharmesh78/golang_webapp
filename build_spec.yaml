@@ -15,9 +15,9 @@ steps:
       export PATH="$GOPATH/bin:$PATH"
       go version
       go build -o golangWebApp main.go
-      echo "till here"
+      echo "build finished.."
 
 outputArtifacts:
   - name: goWebAppArtifact
     type: BINARY
-    location: goWebAppArtifact
+    location: goWebAppArtifact.bin
