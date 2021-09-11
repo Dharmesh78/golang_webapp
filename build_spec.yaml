@@ -22,4 +22,4 @@ steps:
 outputArtifacts:
   - name: goWebAppArtifact
     type: BINARY
-    location: goWebAppArtifact
+    location: golangWebApp
