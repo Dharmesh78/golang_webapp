@@ -1,23 +1,28 @@
-version: 0.1
-component: build
-timeoutInSeconds: 600
-runAs: root
-shell: bash
-steps:
-  - type: Command
-    name: "Build golang app"
-    timeoutInSeconds: 600
-    command: |
-      wget https://dl.google.com/go/go1.16.5.linux-amd64.tar.gz
-      tar -C /usr/local -xvzf go1.16.5.linux-amd64.tar.gz
-      export PATH="/usr/local/go/bin:$PATH"
-      export GOPATH="/usr/local/go"
-      export PATH="$GOPATH/bin:$PATH"
-      go version
-      go build -o golangWebApp main.go
-      echo "till here"
-
-outputArtifacts:
-  - name: goWebAppArtifact
-    type: BINARY
-    location: ${OCI_PRIMARY_SOURCE_DIR}/goWebAppArtifact
+version: 0.2
+run-as: root
+env:
+  shell: bash
+phases:
+ install:
+ commands:
+ - echo install phase...
+ - wget https://dl.google.com/go/go1.16.5.linux-amd64.tar.gz
+ - tar -C /usr/local -xvzf go1.16.5.linux-amd64.tar.gz
+ pre_build:
+ commands:
+ - echo pre_build phase...
+ - export PATH="/usr/local/go/bin:$PATH"
+ - export GOPATH="/usr/local/go"
+ - export PATH="$GOPATH/bin:$PATH"
+ - go version
+ build:
+ commands:
+ - echo Build started on `date`
+ - go build -o golangWebApp main.go
+ - echo "till here"
+ post_build:
+ commands:
+ - echo Build completed
+artifacts:
+ files:
+ - golangArtifact
