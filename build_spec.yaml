@@ -18,6 +18,6 @@ steps:
       echo "till here"
 
 outputArtifacts:
-  - name: golangWebApp
+  - name: golangWebAppArtifact
     type: BINARY
-    location: golangWebApp
+    location: golangWebAppArtifact
