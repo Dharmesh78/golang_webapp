@@ -14,7 +14,7 @@ steps:
       export GOPATH="/usr/local/go"
       export PATH="$GOPATH/bin:$PATH"
       go version
-      go build main.go 
+      go build main.go -o golangWebApp
 
 outputArtifacts:
   - name: golangWebApp
