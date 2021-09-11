@@ -14,10 +14,10 @@ steps:
       export GOPATH="/usr/local/go"
       export PATH="$GOPATH/bin:$PATH"
       go version
-      go build -o golangWebApp
+      go build -o golangWebApp main.go
       echo "till here"
 
 outputArtifacts:
-  - name: golangWebAppArtifact
+  - name: goWebAppArtifact
     type: BINARY
-    location: ${OCI_PRIMARY_SOURCE_DIR}/golangWebAppArtifact
+    location: ${OCI_PRIMARY_SOURCE_DIR}/goWebAppArtifact
