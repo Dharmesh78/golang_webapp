@@ -8,7 +8,7 @@ env:
     - version
 steps:
   - type: Command
-    name: "Build golang app"
+    name: "Build golang App"
     timeoutInSeconds: 600
     command: |
       wget -nv https://dl.google.com/go/go1.16.5.linux-amd64.tar.gz
