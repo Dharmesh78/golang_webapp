@@ -6,6 +6,7 @@ shell: bash
 env:
   exportedVariables:
     - version
+#MINOR CHANGE
 steps:
   - type: Command
     name: "Build golang App"
