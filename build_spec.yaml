@@ -12,7 +12,7 @@ inputArtifacts:
   - name: generic-artifact-by-path
     type: GENERIC_ARTIFACT
     registryId: ocid1.artifactrepository.oc1.eu-stockholm-1.0.amaaaaaam4dsnniawg7gxwsqlppozhubaiouc3pket4jq6ocxzwu7osldlbq
-    path: myarchive
+    path: my-archive
     version: 1.0
     location: ./my-archive-by-path.zip
 
