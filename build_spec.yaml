@@ -24,6 +24,3 @@ steps:
       sha256sum my-archive-by-path.zip
       unzip ./my-archive-by-path.zip
       cat file*
-© 2022 GitHub, Inc.
-Terms
-Privacy
