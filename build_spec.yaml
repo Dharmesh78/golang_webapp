@@ -1,26 +1,27 @@
 version: 0.1
 component: build
-timeoutInSeconds: 6000
+timeoutInSeconds: 600
 runAs: root
 shell: bash
-
-inputArtifacts:
-  - name: generic-artifact-by-id
-    type: GENERIC_ARTIFACT
-    artifactId: ocid1.genericartifact.oc1.eu-stockholm-1.0.amaaaaaam4dsnniavmlhm3uhgqwzlg2po5s6b725yc54u6r437rfhyd4uwvq
-    location: ./my-archive-by-id.zip
-  - name: generic-artifact-by-path
-    type: GENERIC_ARTIFACT
-    registryId: ocid1.artifactrepository.oc1.eu-stockholm-1.0.amaaaaaam4dsnniawg7gxwsqlppozhubaiouc3pket4jq6ocxzwu7osldlbq
-    path: my-archive
-    version: 1.0
-    location: ./my-archive-by-path.zip
-
+env:
+  exportedVariables:
+    - version
 steps:
   - type: Command
-    name: "Export artifact contents"
+    name: "Build golang App"
+    timeoutInSeconds: 600
     command: |
-      sha256sum my-archive-by-id.zip
-      sha256sum my-archive-by-path.zip
-      unzip ./my-archive-by-path.zip
-      cat file*
+      wget -nv https://dl.google.com/go/go1.16.5.linux-amd64.tar.gz
+      tar -C /usr/local -xzf go1.16.5.linux-amd64.tar.gz
+      rm -rf go1.16.5.linux-amd64.tar.gz
+      export PATH="/usr/local/go/bin:$PATH"
+      export GOPATH="/usr/local/go"
+      export PATH="$GOPATH/bin:$PATH"
+      go version
+      go build -o golangWebApp main.go
+      ls -a
+      echo "build finished.."
+outputArtifacts:
+  - name: goWebAppArtifact
+    type: BINARY
+    location: golangWebApp
